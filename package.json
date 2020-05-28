@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Gaith-M/test#readme",
   "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
     "axios": "^0.19.2"
   }
 }
