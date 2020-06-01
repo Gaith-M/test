@@ -3,11 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <title>Main Page</title>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <h2 class="text-center mt-3 mb-4">Bootstrap Grids</h2>
+    <div class="container text-center">
+      <div class="row bg-primary">
+        <div class="col-4">
+          One of three columns
+        </div>
+        <div class="col-4 bg-warning">
+          One of three columns
+        </div>
+        <div class="col-4 bg-success">
+          One of three columns
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row text-center">
+        <div class="col-sm bg-danger"><h3>test</h3></div>
+        <div class="col-lg bg-info"><h3>test</h3></div>
+        <div class="col-xl bg-light"><h3>test</h3></div>
+      </div>
+    </div>
+
+    <div class="container mt-5 text-center">
+      <div class="row">
+        <div class="col bg-light">
+          col 1/4
+        </div>
+        <div class="col bg-primary">
+          col 2/4
+        </div>
+        <div class="col bg-danger">
+          col 3/4
+        </div>
+        <div class="col bg-info">
+          col 4/4
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row text-center">
+        <div class="col bg-danger">col</div>
+        <div class="col-8 bg-info">col 8</div>
+        <div class="col bg-success">col</div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-1 bg-primary">
+          col 1
+        </div>
+        <div class="col-md-auto bg-info">
+          auto width according to content. it will be as wide as the content
+          needs to be
+        </div>
+        <div class="col bg-danger">
+          number-less col takes the remaining space
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-md-auto bg-warning">
+          auto col with little content
+        </div>
+        <div class="col-md-auto bg-primary">
+          auto col with medium content Lorem, ipsum dolor sit amet consectetur
+          adipisicing elit. Libero, optio!
+        </div>
+        <div class="col-md-auto bg-info">
+          auto col with decent amount of content Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Deleniti sint at, laboriosam sapiente
+          voluptas modi obcaecati fugiat? Quidem, cupiditate quibusdam.
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-sm-2 bg-info">col sm 2</div>
+        <div class="col-sm-6 bg-primary">col sm 6</div>
+        <div class="col-sm bg-warning">
+          col sm numberless (takes free space)
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-md bg-info">md col</div>
+        <div class="col-md bg-primary">md col</div>
+        <div class="col-md bg-warning">md col</div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-md bg-primary">md col</div>
+        <div class="col-sm bg-info">sm col</div>
+        <div class="col-lg bg-warning">lg col</div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-sm-6 bg-info">md col (col -3)</div>
+        <div class="col-lg-6 bg-warning">lg col (col -3)</div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col-md-6 bg-info">md col (numbered 6)</div>
+        <div class="col-md-6 bg-primary">md col (numbered 6)</div>
+        <div class="col-lg-6 bg-warning">lg col (numbered 6)</div>
+      </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+
+<!--
+1- containers:
+  containers are essential in order to use the responsive abilities of Bootstrap. containers pad, containe and set responsive breakpoints.
+  we have two types of containers:
+    A)container: set hard break points which will kick in when the sizes are reached (it sets max-width)
+    B)container-fluid: sets width to 100% for all break-points
+    C)container-{break-point}: will set the width to 100% till the specified break-point is reached
+
+  the grid system is also based on the container (the rows goes into it)
+  the columns go in the rows, and they are centered in them
+
+  *only columns can be the immediate children of rows
+
+  *the break-points if specfied using specific ones like sm, md, lg etc...
+  will only take effect when the target width has reached (as specified)
+  this also applies on columns. if a columns is set to lg, it will take 100% up till it reach the lg break-point.
+  this also means that's how all sizes will work regardless of if they are for a container or a columns or a row or whatever
+
+  *giving the columns numbers instead of break-points will not apply a fully responsive behavior. they will change size, but they won't spring to take 100% at specific points. instead they will shrink and expand based on a fixed percentage
+
+  *using col class on its own without specifiying how many cols each column should span, will take the existing columns and divide the space between them. they will behave the same way as if a number of cols is specified (shrink and grow, but not take 100%)
+
+  *setting a column to take a fixed number of cols along side other cols with no numbers of cols specified will have the number-less columns to resize to take the remaining space
+
+  *setting a breakpoint col class along with number(less) columns will cancel out the breakpoint class, and it will behave as if it has a number class
+
+  *using col-bp-auto will size the column as wide as its content needs it to be. it will not grow bigger even if there is enough space for it. it will hover shrink when needed
+  this method can be mixed with number and number-less classes to make the rest of the columns take the remaining space
+  this is useful to assign for the main content, and let others take what's left
+
+  *so we can mix bps and numbers but in one class. this will cause the columns to take the avaliable space, but when they reach the BP they will switch to the predefiend width
+ -->
